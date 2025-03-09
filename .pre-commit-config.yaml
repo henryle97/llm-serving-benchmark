@@ -61,3 +61,7 @@ repos:
     verbose: true
     pass_filenames: false
   # Insert new entries above the `suggestion` entry
+  - id: pytest
+    name: Run pytest
+    entry: cd benchmark && pytest --color=yes --cov=src --cov-report=term-missing
+    language: system
