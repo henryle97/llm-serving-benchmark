@@ -11,7 +11,7 @@ sys.path.append(str(Path(__file__).parent / ".."))
 
 from transformers import AutoTokenizer
 
-from src.userdef import UserDef as BaseUserDef
+from src.user import UserDef
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -93,32 +93,6 @@ def get_prompt_set(
 
 
 prompts = get_prompt_set(30, 150)
-
-
-class UserDef(BaseUserDef):
-    BASE_URL = base_url
-    PROMPTS = prompts
-
-    @classmethod
-    def make_request(cls) -> tuple[str, dict, str]:
-        import json
-        import random
-
-        prompt = random.choice(cls.PROMPTS)
-        headers = {"Content-Type": "application/json"}
-        url = f"{cls.BASE_URL}/generate"
-        data = {
-            "prompt": prompt,
-            # this is important because there's a default system prompt
-            "system_prompt": system_prompt,
-            "max_tokens": max_tokens,
-        }
-        return url, headers, json.dumps(data)
-
-    @staticmethod
-    def parse_response(chunk: bytes) -> list[int]:
-        text = chunk.decode("utf-8").strip()
-        return tokenizer.encode(text, add_special_tokens=False)
 
 
 if __name__ == "__main__":
