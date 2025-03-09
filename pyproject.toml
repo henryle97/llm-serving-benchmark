@@ -1,0 +1,25 @@
+# Ruff config
+[tool.ruff]
+line-length = 79
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",
+    "PGH003",
+    "PLR2004", "PLR0913",
+    "PLW2901",
+    "W292",
+    "FA",
+    "TID252",
+    "S101", "S311",
+    "ANN101", "ANN102",
+    "RET504",
+    "D",
+    "DTZ",
+    "C416",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
