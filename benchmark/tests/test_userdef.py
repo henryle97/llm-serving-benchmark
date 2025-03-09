@@ -1,5 +1,5 @@
 import pytest
-from src.userdef import UserDef
+from src.user import UserDef
 
 
 def test_ping_url() -> None:
