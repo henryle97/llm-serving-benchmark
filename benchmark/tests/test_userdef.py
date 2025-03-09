@@ -1,6 +1,5 @@
 import pytest
-
-from benchmark.src.userdef import UserDef
+from src.userdef import UserDef
 
 
 def test_ping_url() -> None:
