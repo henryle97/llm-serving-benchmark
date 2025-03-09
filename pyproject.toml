@@ -19,6 +19,8 @@ ignore = [
     "D",
     "DTZ",
     "C416",
+    "G004",
+    "E501"
 ]
 
 [tool.ruff.lint.per-file-ignores]
