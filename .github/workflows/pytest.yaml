@@ -25,5 +25,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements/test.txt
 
-      - name: Run Tests
-        run: pytest --color=yes --cov=benchmark/src --cov-report=term-missing
+      - name: Run Benchmark Tests
+        run: cd benchmark && pytest --color=yes --cov=src --cov-report=term-missing
